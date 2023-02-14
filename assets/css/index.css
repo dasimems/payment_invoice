@@ -1,0 +1,191 @@
+:root{
+    --bg-primary: rgb(70,96,80);
+    /* --bg-primary-light: rgba(70,96,80, .2); */
+    --bg-primary-light: rgba(70,96,80, .1);
+    --text-primary: black;
+    --text-primary-two: white;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+.flex{
+    display: flex;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.justify-end{
+    justify-content: flex-end;
+}
+
+a{
+    text-decoration: none;
+}
+
+button, .button{
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, .3);
+    background: var(--bg-primary);
+    color: var(--text-primary-two);
+    cursor: pointer;
+    border: 2px solid var(--bg-primary);
+}
+
+button:hover, .button:hover{
+    transition: 0.5s ease all;
+    -webkit-transition: 0.5s ease all;
+    -moz-transition: 0.5s ease all;
+    -ms-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+}
+
+button:hover, .button:hover,
+button.transparent{
+    background: transparent;
+    color: var(--bg-primary);
+    border: 2px solid var(--bg-primary);
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: poppins;
+    padding: 5px;
+    position: relative;
+    background: #FCFEFF;
+
+}
+
+.background-image-container{
+    background: url(../images/logo_opacity_1.jpg) no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    transform: rotateZ(-45deg);
+    -webkit-transform: rotateZ(-45deg);
+    -moz-transform: rotateZ(-45deg);
+    -ms-transform: rotateZ(-45deg);
+    -o-transform: rotateZ(-45deg);
+}
+
+.main-body{
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 30px 20px;
+}
+
+
+.details:not(:last-child){
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    padding-bottom: 30px;
+
+}
+
+.details:not(:first-child){
+    padding-top: 30px;
+}
+
+.main-body .invoice-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.invoice-details .bussiness-logo img{
+
+    max-height: 70px;
+
+    
+}
+
+.company-details{
+    margin-top: 20px;
+}
+
+.company-details .inner-details a{
+    margin-top: 10px;
+    color: var(--bg-primary);
+}
+
+.details-text{
+    margin-top: 20px;
+}
+
+.invoice-table{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+table, tr, td, th{
+    border-collapse: collapse;
+}
+
+td, th{
+    padding: 10px 0px;
+    text-align: center;
+}
+
+th{
+    font-size: 0.9rem;
+}
+
+.invoice-table thead tr:not(:nth-child(even)){
+    background: var(--bg-primary-light);
+
+}
+
+.invoice-table tbody tr:nth-child(even){
+    background: var(--bg-primary-light);
+
+}
+
+th:nth-child(2),
+td:nth-child(2){
+    max-width: 100px;
+    text-align: left;
+
+}
+
+tr th:first-child{
+    max-width: 30px;
+}
+
+td{
+    font-size: 0.8rem;
+}
