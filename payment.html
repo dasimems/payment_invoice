@@ -21,7 +21,7 @@
     <link rel="icon" href="./assets/images/favicon.ico">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest"> <!-- TODO: update web app manifest file -->
+    <!-- <link rel="manifest" href="site.webmanifest"> TODO: update web app manifest file -->
     <meta name="theme-color" content="#FF00FF"> <!-- TODO: update meta theme color -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">  <!-- TODO: Update styles -->
     <link rel="stylesheet" href="./assets/css/index.css">  <!-- TODO: Update styles -->
@@ -35,11 +35,11 @@
 
         <div class="payment-header-action flex space-between align-center">
 
-            <button class="transparent non-bordered half-width  active-button">
+            <button class="form-change-btn transparent non-bordered half-width  active-button" data-content="card-payment">
                 Pay with card
             </button>
 
-            <button class="transparent non-bordered half-width">
+            <button class="form-change-btn transparent non-bordered half-width" data-content="bank-transfer">
                 Bank Transfer
             </button>
 
@@ -88,7 +88,7 @@
                         </label>
                         <label for="payment-confirm">Drag or Click a file to upload</label>
 
-                        <input type="file" name="payment-confirm" id="payment-confirm" required>
+                        <input type="file" name="payment-confirm" id="payment-confirm" >
 
                     </div>
 
@@ -99,10 +99,10 @@
             </div>
 
             <div class="card-payment option-container active-option">
-                <form action="" class="flex space-between wrap">
+                <form action="./index.html" method="post" class="flex space-between wrap">
                     <div class="form-content full-width">
                         <label for="email" data-name="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Your email" data-name="email" data-regex="" data-min="" data-max="" data-required="true" required>
+                        <input type="email" name="email" id="email" placeholder="Your email" data-name="email" data-name-err="Please Input a valid name" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="Please input a valid email address" data-regex="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" data-min="" data-max="" data-required="true" >
                         <p class="form-err" data-name="email">
                             this is an error
                         </p>
@@ -110,23 +110,43 @@
 
                     <div class="form-content full-width">
                         <label for="card-number" data-name="card-number">Card Number</label>
-                        <input type="number" name="card-number" id="card-number" placeholder="xxxx xxxx xxxx xxxx" data-name="card-number" data-regex="" data-min="" data-max="" data-required="true" required>
+                        <input type="number" name="card-number" id="card-number" placeholder="xxxx xxxx xxxx xxxx" data-name="card-number" data-name-err="Please Input a valid card number" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
                         <p class="form-err" data-name="card-number">
                             this is an error
                         </p>
                     </div>
 
                     <div class="form-content half-width">
-                        <label for="expiry-date" data-name="expiry-date">Expiry Date</label>
-                        <input type="text" name="expiry-date" id="expiry-date" placeholder="mm/yy" data-name="expiry-date" data-regex="" data-min="" data-max="" data-required="true" required>
-                        <p class="form-err" data-name="expiry-date">
+
+                        <div class="full-width flex space-between">
+
+                            <div class="half-width">
+                                <label for="expiry-month" data-name="expiry-month">Month</label>
+    
+                                <input type="number" class="half-width" name="expiry-month" id="expiry-month" placeholder="MM" data-name="expiry-month" data-name-err="Please Input a valid Expiry month" data-required-err="The month field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="2" data-max="2" data-required="true" data-next-input="">
+    
+                            </div>
+    
+                            <div class="half-width">
+                                <label for="expiry-year" data-name="expiry-year">Year</label>
+    
+                                <input type="number" class="half-width" name="expiry-year" id="expiry-year" placeholder="YY" data-name="expiry-year" data-name-err="Please Input a valid Expiry year" data-required-err="The year field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="2" data-max="2" data-required="true">
+                            </div> 
+                        </div>
+                        
+
+                        <p class="form-err" data-name="expiry-month">
+                            this is an error
+                        </p>
+
+                        <p class="form-err" data-name="expiry-year">
                             this is an error
                         </p>
                     </div>
 
                     <div class="form-content half-width">
                         <label for="cvv" data-name="cvv">Cvv</label>
-                        <input type="number" name="cvv" id="cvv" placeholder="xxx" data-name="cvv" data-regex="" data-min="" data-max="" data-required="true" required>
+                        <input type="number" name="cvv" id="cvv" placeholder="xxx" data-name="cvv" data-name-err="Please Input a valid CVV" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="3" data-max="3" data-required="true" >
                         <p class="form-err" data-name="cvv">
                             this is an error
                         </p>
@@ -145,15 +165,15 @@
     </div>
 
     <!-- Content -->
-    <script src="js/app.js"></script> <!-- TODO: Update app entry point -->
-    <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->
-    <script src="/assets/js/xy-polyfill.js" nomodule></script>
-    <script src="/assets/js/script.js" type="module"></script>
+    <script src="./assets/js/index.js"></script> <!-- TODO: Update app entry point -->
+    <!-- <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> TODO: Add Modernizr js -->
+    <!-- <script src="/assets/js/xy-polyfill.js" nomodule></script>
+    <script src="/assets/js/script.js" type="module"></script> -->
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
         window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
         ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
     </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <!-- <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 </body>
 </html>

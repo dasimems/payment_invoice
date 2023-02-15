@@ -5,6 +5,8 @@
     --bg-primary-light-x2: rgba(70,96,80, .3);
     --bg-primary-light-medium: rgba(70,96,80, .5);
     --danger: rgba(255, 25, 20);
+    --danger-light: rgba(255, 25, 20, .3);
+    --danger-light-medium: rgba(255, 25, 20, .5);
     --text-primary: black;
     --text-primary-two: white;
 }
@@ -235,6 +237,14 @@ td{
     font-size: 0.8rem;
 }
 
+.form-change-btn{
+    transition: 0.5s ease all;
+    -webkit-transition: 0.5s ease all;
+    -moz-transition: 0.5s ease all;
+    -ms-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+}
+
 .payment-chosen-option .bank-transfer .input-form-image{
     width: 100%;
     margin-top: 20px;
@@ -268,6 +278,11 @@ td{
     left: unset;
     opacity: 1;
     z-index: 1;
+    transition: 0.7s ease all;
+    -webkit-transition: 0.7s ease all;
+    -moz-transition: 0.7s ease all;
+    -ms-transition: 0.7s ease all;
+    -o-transition: 0.7s ease all;
 }
 
 
@@ -347,6 +362,21 @@ button[type="submit"]{
 .form-content input:focus{
     border: 2px solid var(--bg-primary-light-medium);
     
+}
+
+.form-content .input-err, .form-content .input-err:focus{
+    border: 2px solid var(--danger-light);
+    
+
+}
+
+.form-content .input-err::placeholder, .form-content .input-err:-moz-placeholder{
+    color: var(--bg-primary-light);
+}
+
+.form-content  .label-err{
+    color: var(--danger-light-medium);
+
 }
 
 .form-content .form-err{
