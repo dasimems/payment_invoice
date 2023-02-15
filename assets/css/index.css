@@ -2,7 +2,9 @@
     --bg-primary: rgb(70,96,80);
     /* --bg-primary-light: rgba(70,96,80, .2); */
     --bg-primary-light: rgba(70,96,80, .1);
+    --bg-primary-light-x2: rgba(70,96,80, .3);
     --bg-primary-light-medium: rgba(70,96,80, .5);
+    --danger: rgba(255, 25, 20);
     --text-primary: black;
     --text-primary-two: white;
 }
@@ -10,11 +12,22 @@
 *{
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 @font-face {
     font-family: poppins;
     src: url(../fonts/Poppins-Regular.ttf);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
 }
 
 .flex{
@@ -31,6 +44,10 @@
 
 .justify-end{
     justify-content: flex-end;
+}
+
+.wrap{
+    flex-wrap: wrap;
 }
 
 a{
@@ -237,6 +254,22 @@ td{
     position: relative;
 }
 
+.option-container{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.active-option{
+    position: relative;
+    top: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+}
+
 
 .input-form-image .icon{
     font-size: 1.5rem;
@@ -253,10 +286,14 @@ td{
     opacity: 0;
 }
 
-.upload-btn{
-    margin-top: 20px;
+button[type="submit"]{
     padding: 15px 20px;
     z-index: 1;
+
+}
+
+.upload-btn{
+    margin-top: 20px;
 }
 
 .bank-transfer h4{
@@ -274,4 +311,66 @@ td{
 
 .bank-transfer ul{
     padding-left: 25px;
+}
+
+.card-payment{
+    margin-top: 20px;
+}
+
+.form-content{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+
+}
+
+.form-content label{
+    color: rgba(0, 0, 0, .7);
+}
+
+.form-content input{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border: 1px solid var(--bg-primary-light-x2);
+    background: transparent;
+    padding: 0px 10px;
+    margin-top: 10px;
+    outline: none;
+}
+
+.form-content input:focus{
+    border: 2px solid var(--bg-primary-light-medium);
+    
+}
+
+.form-content .form-err{
+    font-size: 0.7rem;
+    color: var(--danger);
+    margin-top: 10px;
+    display: none;
+    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    transition: 0.5s ease all;
+    -webkit-transition: 0.5s ease all;
+    -moz-transition: 0.5s ease all;
+    -ms-transition: 0.5s ease all;
+    -o-transition: 0.5s ease all;
+}
+
+.form-content .shown-err{
+    display: block;
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
 }

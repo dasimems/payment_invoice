@@ -48,7 +48,7 @@
         <div class="payment-chosen-option">
 
 
-            <div class="bank-transfer">
+            <div class="bank-transfer option-container">
 
                 <h4>Instructions on how to make payment</h4>
 
@@ -88,7 +88,7 @@
                         </label>
                         <label for="payment-confirm">Drag or Click a file to upload</label>
 
-                        <input type="file" name="payment-confirm" id="payment-confirm">
+                        <input type="file" name="payment-confirm" id="payment-confirm" required>
 
                     </div>
 
@@ -96,6 +96,46 @@
 
                 </form>
 
+            </div>
+
+            <div class="card-payment option-container active-option">
+                <form action="" class="flex space-between wrap">
+                    <div class="form-content full-width">
+                        <label for="email" data-name="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your email" data-name="email" data-regex="" data-min="" data-max="" data-required="true" required>
+                        <p class="form-err" data-name="email">
+                            this is an error
+                        </p>
+                    </div>
+
+                    <div class="form-content full-width">
+                        <label for="card-number" data-name="card-number">Card Number</label>
+                        <input type="number" name="card-number" id="card-number" placeholder="xxxx xxxx xxxx xxxx" data-name="card-number" data-regex="" data-min="" data-max="" data-required="true" required>
+                        <p class="form-err" data-name="card-number">
+                            this is an error
+                        </p>
+                    </div>
+
+                    <div class="form-content half-width">
+                        <label for="expiry-date" data-name="expiry-date">Expiry Date</label>
+                        <input type="text" name="expiry-date" id="expiry-date" placeholder="mm/yy" data-name="expiry-date" data-regex="" data-min="" data-max="" data-required="true" required>
+                        <p class="form-err" data-name="expiry-date">
+                            this is an error
+                        </p>
+                    </div>
+
+                    <div class="form-content half-width">
+                        <label for="cvv" data-name="cvv">Cvv</label>
+                        <input type="number" name="cvv" id="cvv" placeholder="xxx" data-name="cvv" data-regex="" data-min="" data-max="" data-required="true" required>
+                        <p class="form-err" data-name="cvv">
+                            this is an error
+                        </p>
+                    </div>
+
+                    <div class="form-content form-action full-width">
+                        <button type="submit" class="full-width">Pay</button>
+                    </div>
+                </form>
             </div>
 
         </div>
