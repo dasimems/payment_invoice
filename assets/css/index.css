@@ -48,6 +48,18 @@ input[type=number]{
     justify-content: flex-end;
 }
 
+.justify-center{
+    justify-content: center;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+}
+
 .wrap{
     flex-wrap: wrap;
 }
@@ -124,21 +136,57 @@ body{
 
 }
 
+.paid-container,
+.payment-approve-container,
 .background-image-container{
-    background: url(../images/logo_opacity_1.jpg) no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-attachment: fixed;
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0px;
     left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.lottie-animation{
+    width: 60px;
+}
+
+.payment-response-container h4{
+    margin-left: 10px;
+}
+
+.paid-container,
+.payment-approve-container{
+    z-index: 999;
+}
+
+.extra-link{
+    color: #55387b;
+    font-weight: 500;
+}
+
+.background-image-container img{
+    opacity: 0.2;
+    width: 100%;
     transform: rotateZ(-45deg);
-    -webkit-transform: rotateZ(-45deg);
-    -moz-transform: rotateZ(-45deg);
-    -ms-transform: rotateZ(-45deg);
-    -o-transform: rotateZ(-45deg);
+}
+
+.paid-container img{
+    opacity: 0.5;
+    max-width: 400px;
+    transform: rotateZ(-5deg);
+    -webkit-transform: rotateZ(-5deg);
+    -moz-transform: rotateZ(-5deg);
+    -ms-transform: rotateZ(-5deg);
+    -o-transform: rotateZ(-5deg);
+}
+
+.payment-approve-container img{
+    opacity: 0.5;
+    max-width: 400px;
 }
 
 .main-body{
@@ -154,6 +202,7 @@ body{
     -o-border-radius: 10px;
     padding: 30px 20px;
 }
+
 
 
 .details:not(:last-child){
@@ -212,7 +261,8 @@ th{
     font-size: 0.9rem;
 }
 
-.invoice-table thead tr:not(:nth-child(even)){
+.invoice-table thead tr:not(:nth-child(even)),
+.invoice-table tfoot tr:not(:nth-child(even)){
     background: var(--bg-primary-light);
 
 }
@@ -243,6 +293,10 @@ td{
     -moz-transition: 0.5s ease all;
     -ms-transition: 0.5s ease all;
     -o-transition: 0.5s ease all;
+}
+
+.form-inner-title{
+    margin-bottom: 15px;
 }
 
 .payment-chosen-option .bank-transfer .input-form-image{
@@ -301,6 +355,14 @@ td{
     opacity: 0;
 }
 
+.action-btn{
+    padding: 13px 20px;
+}
+
+.action-btn .icon{
+    margin-left: 5px;
+}
+
 button[type="submit"]{
     padding: 15px 20px;
     z-index: 1;
@@ -344,9 +406,9 @@ button[type="submit"]{
     color: rgba(0, 0, 0, .7);
 }
 
-.form-content input{
+.form-content input,
+.form-content textarea{
     width: 100%;
-    height: 45px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -357,6 +419,18 @@ button[type="submit"]{
     padding: 0px 10px;
     margin-top: 10px;
     outline: none;
+
+}
+
+.form-content input{
+    height: 45px;
+}
+
+.form-content textarea{
+    font-family: poppins;
+    padding: 10px;
+    min-height: 150px;
+
 }
 
 .form-content input:focus{
@@ -403,4 +477,30 @@ button[type="submit"]{
     -moz-transform: scaleY(1);
     -ms-transform: scaleY(1);
     -o-transform: scaleY(1);
+}
+
+
+@media print {
+   .main-body{
+    background: transparent;
+   }
+
+    .invoice-table thead tr:not(:nth-child(even)){
+        background: transparent;
+
+    }
+
+    table, tr, td, th{
+        border-top: 1px solid rgba(0, 0, 0, .2);
+        border-bottom: 1px solid rgba(0, 0, 0, .2);
+    }
+
+    table tfoot{
+        display: none;
+    }
+
+    .invoice-table tbody tr:nth-child(even){
+        background: transparent;
+
+    }
 }

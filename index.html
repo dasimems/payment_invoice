@@ -29,7 +29,18 @@
 </head>
 <body>
 
-    <div class="background-image-container"></div>
+    <div class="background-image-container">
+        <img src="./assets/images/logo.jpg" alt="jagshood" />
+    </div>
+
+    <!-- This will be shown when the payment has been paid and someone redirects to the link-->
+
+    <div class="paid-container">
+
+        <img src="./assets/images/paid.png" alt="jagshood payment successful">
+
+    </div>
+
     <div class="main-body">
 
 
@@ -174,24 +185,34 @@
                         <td>27,450</td>
                     </tr>
 
-                    <tr>
-                        <th></th>
-                        <td>Total</td>
-                        <td></td>
-                        <td>3</td>
-                        <td>82,350</td>
-                    </tr>
+                    <tfoot>
+
+                        <tr>
+                            <th></th>
+                            <td>Total</td>
+                            <td></td>
+                            <td>3</td>
+                            <td>82,350</td>
+                        </tr>
+
+                    </tfoot>
+
                 </tbody>
             </table>
 
-            <div class="invoice-stats details-text flex justify-end">
+            <div class="invoice-stats details-text flex space-between">
 
-            <p>
-                <b>Total: </b>
-                <span>&#8358;82,350</span>
-            </p>
+                <p>
+                    <b>Status :</b>
+                    <span>-Unpaid</span>
+                </p>
 
-        </div>
+                <p>
+                    <b>Total: </b>
+                    <span>&#8358;82,350</span>
+                </p>
+
+            </div>
 
         </div>
 

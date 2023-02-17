@@ -47,7 +47,7 @@ function showFormElement(element){
 
 
 function showFormErr(dataName, message, removeErr){
-    var inputs = All("input");
+    var inputs = [...All("input"), ...All("textarea")];
     var formErr = All(".form-err");
     var formLabels = All("label");
 
@@ -257,20 +257,10 @@ function submitFormValidation(form){
 
 }
 
-window.addEventListener("load", () => {
-    var formChangeButton = All(".form-change-btn");
-    var inputFields = All("input");
-    var forms = All("form");
+function addInputEventListener(){
 
-    formChangeButton.forEach((element) => {
-        element.addEventListener("click", (e)=>{
-
-            var content = element.getAttribute("data-content");
-            showFormElement(content)
-            
-
-        })
-    })
+    
+    var inputFields = [...All("input"), ...All("textarea")];
 
     inputFields.forEach(inputElement => {
         var dataName = inputElement.getAttribute("data-name");
@@ -365,6 +355,24 @@ window.addEventListener("load", () => {
 
         }
     })
+
+}
+
+window.addEventListener("load", () => {
+    var formChangeButton = All(".form-change-btn");
+    var forms = All("form");
+
+    formChangeButton.forEach((element) => {
+        element.addEventListener("click", (e)=>{
+
+            var content = element.getAttribute("data-content");
+            showFormElement(content)
+            
+
+        })
+    })
+
+    addInputEventListener();
 
     forms.forEach(form => {
         form.addEventListener("submit", submitFormValidation);
