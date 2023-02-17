@@ -90,11 +90,13 @@
                         <label for="payment-confirm" class="icon">
                             <i class="fa-solid fa-file-upload"></i>
                         </label>
-                        <label for="payment-confirm">Drag or Click a file to upload</label>
+                        <label for="payment-confirm"  data-name="payment-confirm">Drag or Click a file to upload</label>
 
-                        <input type="file" name="payment-confirm" id="payment-confirm" >
+                        <input type="file" name="payment-confirm" id="payment-confirm" data-name="payment-confirm" data-size="2" data-type="['image/png','png', 'image/jpg', 'image/jpeg', 'jpg', 'jpeg']" data-max="1" data-max-size="2" data-required="true">
 
                     </div>
+
+                    <p class="form-err" data-name="payment-confirm"></p>
 
                     <button type="submit" class="full-width upload-btn">Upload</button>
 
@@ -103,7 +105,7 @@
             </div>
 
             <div class="card-payment option-container active-option">
-                <form action="./index.html" method="post" class="flex space-between wrap">
+                <form action="./index.html" class="flex space-between wrap">
                     <div class="form-content full-width">
                         <label for="email" data-name="email">Email</label>
                         <input type="email" name="email" id="email" placeholder="Your email" data-name="email" data-name-err="Please Input a valid email address" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="Please input a valid email address" data-regex="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" data-min="" data-max="" data-required="true" >

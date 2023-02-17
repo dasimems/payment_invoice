@@ -203,7 +203,10 @@ body{
     padding: 30px 20px;
 }
 
-
+.login-body{
+    min-height: unset;
+    max-width: 460px;
+}
 
 .details:not(:last-child){
     border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -453,9 +456,9 @@ button[type="submit"]{
 
 }
 
-.form-content .form-err{
+.form-err{
     font-size: 0.7rem;
-    color: var(--danger);
+    color: var(--danger) !important;
     margin-top: 10px;
     display: none;
     transform: scaleY(0);
@@ -470,7 +473,7 @@ button[type="submit"]{
     -o-transition: 0.5s ease all;
 }
 
-.form-content .shown-err{
+.shown-err{
     display: block;
     transform: scaleY(1);
     -webkit-transform: scaleY(1);
