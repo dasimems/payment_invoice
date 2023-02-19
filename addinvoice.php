@@ -1,10 +1,20 @@
+<?php
+require "backend/functions.php";
+ session_start();
+ $csrf_token = generate_csrf_token();
+ $nonce = base64_encode(random_bytes(14));
+
+ header("Content-Security-Policy: script-src 'nonce-$nonce'");
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width"> -->
     <title>Generate Payment Invoice</title> <!-- TODO: update page title -->
-    <script type="module">
+    <script type="module" nonce="<?php echo $nonce ?>">
             document.documentElement.classList.remove('no-js');
             document.documentElement.classList.add('js');
     </script>
@@ -46,7 +56,7 @@
         </div>
 
         <div class="invoice-form-container details">
-            <form action="" method="post" class="invoice-form flex space-between wrap">
+            <form action="backend/addinvoice.php" method="post" class="invoice-form flex space-between wrap">
 
                 <h4 class="form-inner-title">Customer Details</h4>
 
@@ -77,14 +87,14 @@
                 </div>
 
                 <input type="hidden" name="invoice-details-count"  class="invoice-details-count" value="0">
-                
+                <input type="hidden" name="csrf-token" value="<?php echo $csrf_token ?>">
                 <h4 class="form-inner-title full-width">Invoice Details - #1</h4>
 
 
                 <div class="form-content half-width">
                     
                     <label for="invoice-price-0" data-name="invoice-price-0">Price</label>
-                    <input type="number" name="invoice-price-0" id="invoice-price-0" placeholder="Price" data-name="invoice-price-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
+                    <input type="number" name="invoice-price" id="invoice-price-0" placeholder="Price" data-name="invoice-price-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
                     <p class="form-err" data-name="invoice-price-0">
                         this is an error
                     </p>
@@ -93,7 +103,7 @@
                 <div class="form-content half-width">
                     
                     <label for="invoice-quantity-0" data-name="invoice-quantity-0">Quantity</label>
-                    <input type="number" name="invoice-quantity-0" id="invoice-quantity-0" placeholder="Quantity" data-name="invoice-quantity-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
+                    <input type="number" name="invoice-quantity" id="invoice-quantity-0" placeholder="Quantity" data-name="invoice-quantity-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
                     <p class="form-err" data-name="invoice-quantity-0">
                         this is an error
                     </p>
@@ -103,7 +113,7 @@
                     
                     <label for="invoice-description-0" data-name="invoice-description-0">Description</label>
                     
-                    <textarea type="number" name="invoice-description-0" id="invoice-description-0" placeholder="Description..." data-name="invoice-description-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="100" data-required="true" ></textarea>
+                    <textarea type="number" name="invoice-description" id="invoice-description-0" placeholder="Description..." data-name="invoice-description-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="100" data-required="true" ></textarea>
                     <p class="form-err" data-name="invoice-description-0">
                         this is an error
                     </p>
@@ -136,16 +146,16 @@
     </div>
 
     <!-- Content -->
-    <script src="./assets/js/index.js"></script> <!-- TODO: Update app entry point -->
-    <script src="./assets/js/addinvoice.js"></script> <!-- TODO: Update app entry point -->
-    <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->
-    <!-- <script src="/assets/js/xy-polyfill.js" nomodule></script> -->
-    <!-- <script src="/assets/js/script.js" type="module"></script> -->
+    <script src="./assets/js/index.js" nonce="<?php echo $nonce ?>"></script> <!-- TODO: Update app entry point -->
+    <script src="./assets/js/addinvoice.js" nonce="<?php echo $nonce ?>"></script> <!-- TODO: Update app entry point -->
+    <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js" nonce="<?php echo $nonce ?>"></script> <!-- TODO: Add Modernizr js -->
+    <!-- <script src="/assets/js/xy-polyfill.js" nomodule nonce="<?php echo $nonce ?>"></script> -->
+    <!-- <script src="/assets/js/script.js" type="module" nonce="<?php echo $nonce ?>"></script> -->
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    <script nonce="<?php echo $nonce ?>">
+         window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
         ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
     </script>
-    <!-- <script src="https://www.google-analytics.com/analytics.js" async></script> -->
+    <!--<script src="https://www.google-analytics.com/analytics.js" async nonce="<?php echo $nonce ?>"></script> -->
 </body>
 </html>
