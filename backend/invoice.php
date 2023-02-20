@@ -36,7 +36,7 @@
         break;
         case ($date =="02" or $date == "2") : $date = "2nd";
         break;
-        default: $date = $date . "TH";
+        default: $date = $date . "th";
   }
   $date = $date . " " . date("M  Y" , );
   $table_body = "";
@@ -47,5 +47,5 @@
      "</td><td>" . $price[$i] . "</td><td>" . $quantity[$i] . 
      "</td><td>". ($price[$i] * $quantity[$i]) . "</td></tr>";
   }
-  $payment_processor_url = "./payment?id=" . $id;
+  $payment_processor_url = "./payment.php?id=" . $id;
  

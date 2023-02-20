@@ -1,9 +1,18 @@
 <?php
 require "backend/functions.php";
  session_start();
+ check_login();
  $csrf_token = generate_csrf_token();
  $nonce = base64_encode(random_bytes(14));
-
+ $time = time();
+ switch($date = date("d" , $time)){
+       case ($date == "01" or $date == "1") : $date =  "1st";
+       break;
+       case ($date =="02" or $date == "2") : $date = "2nd";
+       break;
+       default: $date = $date . "th";
+ }
+ $date = $date . " " . date("M  Y" , );
  header("Content-Security-Policy: script-src 'nonce-$nonce'");
 
 
@@ -47,11 +56,11 @@ require "backend/functions.php";
 
         <div class="invoice-header details flex space-between align-center">
 
-            <p>20th Feb 2023</p>
+            <p><?php echo $date ?></p>
 
             <h3>Generate Invoice</h3>
 
-            <a href="" class="button">Logout</a>
+            <a href="./logout.php" class="button">Logout</a>
 
         </div>
 

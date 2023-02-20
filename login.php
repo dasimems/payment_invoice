@@ -4,7 +4,7 @@
  $csrf_token = generate_csrf_token();
  $nonce = base64_encode(random_bytes(14));
 
- //header("Content-Security-Policy: script-src-elem 'nonce-$nonce'");
+ header("Content-Security-Policy: script-src 'nonce-$nonce'");
 
  ?>
 
@@ -51,22 +51,30 @@
 
         
         <div class="details">
-            <form action="" method="post" class="flex space-between wrap">
-    
+            <form action="./backend/login.php" method="post" class="flex space-between wrap">
+                <input type="hidden" name="csrf-token" value="<?php echo $csrf_token ?>">
                 <div class="form-content full-width">
                     <label for="username" data-name="username">Username</label>
                     <input type="text" name="username" id="username" placeholder="Your username">
-                    <p class="form-err" data-name="username">
+                    <p class="form-err" data-name="username" >
                         this is an error
                     </p>
+                    <?php
+                    echo isset($_SESSION["usern_err"]) ? $_SESSION["usern_err"] : null;
+                    $_SESSION["usern_err"] = null;
+                    ?>
                 </div>
 
                 <div class="form-content full-width">
                     <label for="password" data-name="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Your password">
                     <p class="form-err" data-name="password">
-                        this is an error <?php echo $nonce; ?>
+                        this is an error 
                     </p>
+                    <?php
+                    echo isset($_SESSION["psw_err"]) ? $_SESSION["psw_err"] : null;
+                    $_SESSION["psw_err"] = null;
+                    ?>
                 </div>
 
                 <div class="form-content action-btn-container row full-width flex justify-end">
@@ -83,7 +91,7 @@
     </div>
 
     <!-- Content -->
-    <script src="./assets/js/index.js" nonce="<?php echo $nonce; ?>"></script> <!-- TODO: Update app entry point -->
+    <!--<script src="./assets/js/index.js" nonce="<?php echo $nonce; ?>"></script> --><!-- TODO: Update app entry point -->
     <script src="./js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js" nonce="<?php echo $nonce ?>"></script> <!-- TODO: Add Modernizr js -->
     <!-- <script src="/assets/js/xy-polyfill.js" nomodule></script> -->
     <!-- <script src="/assets/js/script.js" type="module"></script> -->
