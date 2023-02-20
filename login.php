@@ -1,3 +1,13 @@
+<?php
+ require "backend/functions.php";
+ session_start();
+ $csrf_token = generate_csrf_token();
+ $nonce = base64_encode(random_bytes(14));
+
+ //header("Content-Security-Policy: script-src-elem 'nonce-$nonce'");
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -26,36 +36,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">  <!-- TODO: Update styles -->
     <link rel="stylesheet" href="./assets/css/index.css">  <!-- TODO: Update styles -->
     <link rel="stylesheet" href="./assets/css/index.css" media="print">
-    
-    <script src="./assets/plugin/lottie_player/lottie-player.js"></script>
 </head>
-<body class="column align-center justify-center">
+<body>
 
     <div class="background-image-container">
         <img src="./assets/images/logo.jpg" alt="jagshood" />
     </div>
 
-    <div class="payment-response-container flex align-center">
-        <div class="animation-element">
-            <lottie-player class="lottie-animation" src="./assets/lottie/96673-success.json" background="transparent"  speed="1" autoplay></lottie-player>
+    <div class="main-body login-body">
+
+        <div class="details flex justify-center">
+            <h4>Login</h4>
         </div>
+
+        
+        <div class="details">
+            <form action="" method="post" class="flex space-between wrap">
     
-        <h4>You've successfully created an invoice for isaacseun63@gmail.com</h4>
+                <div class="form-content full-width">
+                    <label for="username" data-name="username">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Your username">
+                    <p class="form-err" data-name="username">
+                        this is an error
+                    </p>
+                </div>
+
+                <div class="form-content full-width">
+                    <label for="password" data-name="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Your password">
+                    <p class="form-err" data-name="password">
+                        this is an error <?php echo $nonce; ?>
+                    </p>
+                </div>
+
+                <div class="form-content action-btn-container row full-width flex justify-end">
+                    <button type="submit">
+                        Login
+                    </button>
+                </div>
+    
+            </form>
+            
+        </div>
+
 
     </div>
 
-    <a class="extra-link" href="./index.html">View Invoice</a>
-
     <!-- Content -->
-    <script src="./assets/js/index.js"></script> <!-- TODO: Update app entry point -->
-    <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->
+    <script src="./assets/js/index.js" nonce="<?php echo $nonce; ?>"></script> <!-- TODO: Update app entry point -->
+    <script src="./js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js" nonce="<?php echo $nonce ?>"></script> <!-- TODO: Add Modernizr js -->
     <!-- <script src="/assets/js/xy-polyfill.js" nomodule></script> -->
     <!-- <script src="/assets/js/script.js" type="module"></script> -->
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
+    <!--<script>
         window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
         ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
+    </script>-->
     <!-- <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 </body>
 </html>

@@ -67,6 +67,14 @@ require "backend/functions.php";
                         this is an error
                     </p>
                 </div>
+                <div class="form-content full-width">
+                    <label for="address" data-name="address">Customer's Address</label>
+                    <input type="text" name="address" id="address" placeholder="Customer's address" data-name="address" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
+                    <p class="form-err" data-name="name">
+                        this is an error
+                    </p>
+                </div>
+               
 
                 <div class="form-content half-width">
                     
@@ -94,7 +102,7 @@ require "backend/functions.php";
                 <div class="form-content half-width">
                     
                     <label for="invoice-price-0" data-name="invoice-price-0">Price</label>
-                    <input type="number" name="invoice-price" id="invoice-price-0" placeholder="Price" data-name="invoice-price-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
+                    <input type="number" name="invoice-price[]" id="invoice-price-0" placeholder="Price" data-name="invoice-price-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
                     <p class="form-err" data-name="invoice-price-0">
                         this is an error
                     </p>
@@ -103,7 +111,7 @@ require "backend/functions.php";
                 <div class="form-content half-width">
                     
                     <label for="invoice-quantity-0" data-name="invoice-quantity-0">Quantity</label>
-                    <input type="number" name="invoice-quantity" id="invoice-quantity-0" placeholder="Quantity" data-name="invoice-quantity-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
+                    <input type="number" name="invoice-quantity[]" id="invoice-quantity-0" placeholder="Quantity" data-name="invoice-quantity-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="" data-required="true" >
                     <p class="form-err" data-name="invoice-quantity-0">
                         this is an error
                     </p>
@@ -113,7 +121,7 @@ require "backend/functions.php";
                     
                     <label for="invoice-description-0" data-name="invoice-description-0">Description</label>
                     
-                    <textarea type="number" name="invoice-description" id="invoice-description-0" placeholder="Description..." data-name="invoice-description-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="100" data-required="true" ></textarea>
+                    <textarea type="number" name="invoice-description[]" id="invoice-description-0" placeholder="Description..." data-name="invoice-description-0" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="100" data-required="true" ></textarea>
                     <p class="form-err" data-name="invoice-description-0">
                         this is an error
                     </p>

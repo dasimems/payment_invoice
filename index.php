@@ -1,3 +1,6 @@
+<?php
+ require "./backend/invoice.php";
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -28,29 +31,37 @@
     <link rel="stylesheet" href="./assets/css/index.css" media="print">
 </head>
 <body>
-
+ <?php
+ if(is_null($id)){
+    ?>
+    <p>This invoice is not a valid invoice</p>
+  <?php } else { ?>
     <div class="background-image-container">
         <img src="./assets/images/logo.jpg" alt="jagshood" />
     </div>
 
     <!-- This will be shown when the payment has been paid and someone redirects to the link-->
-
+   <?php if($is_paid) { ?>
     <div class="paid-container">
 
         <img src="./assets/images/paid.png" alt="jagshood payment successful">
 
-    </div>
+    </div> 
+    <?php } ?>
 
     <div class="main-body">
 
 
         <div class="invoice-nav details">
 
-            <p class="date">7th, March 2023</p>
+            <p class="date"><?php echo $date; ?></p>
 
-            <h3>Invoice - #001</h3>
-
-            <a href="./payment.html" class="button">Pay Now</a>
+            <h3>Invoice - <?php echo "#$invoice_id";?> </h3>
+            <?php if(!$is_paid){ ?>
+            <a href="<?php echo $payment_processor_url ?>" class="button">Pay Now</a>
+            <?php } else {?>
+            <a href="javascript:void(0)" class="button">Already Paid</a>        
+           <?php } ?>
 
         </div>
 
@@ -101,7 +112,7 @@
                 </p>
 
                 <p>
-                    Omonimewa Isaac Duyilemi
+                <?php echo ucwords($customer_name) ?>
                 </p>
             </div>
 
@@ -113,7 +124,7 @@
                     </p>
 
                     <p>
-                        <a href="tel:+2349036634645">+(234) 903 663-4645</a>
+                        <a href="tel:<?php echo $telephone ?>"> <?php echo $telephone ?></a>
                     </p>
                 </div>
 
@@ -123,8 +134,8 @@
                     </p>
 
                     <p>
-                        <a href="mailto:isaacseun63@gmail.com">     
-                            isaacseun63@gmail.com
+                        <a href="mailto:<?php echo $customer_email ?>">     
+                            <?php echo $customer_email ?>
                         </a>
                     </p>
                 </div>
@@ -137,7 +148,7 @@
                 </p>
 
                 <p>
-                    Oluwaseyi street, Ajebandele. Ado Ekiti. Ekiti State. Nigeria
+                    <?php echo $address ?>
                 </p>
             </div>
 
@@ -161,38 +172,15 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Bought Ageless Rejuvenating Serum - 75ML</td>
-                        <td>27, 450</td>
-                        <td>1</td>
-                        <td>27,450</td>
-                    </tr>
-
-                    <tr>
-                        <th>2</th>
-                        <td>Bought Ageless Rejuvenating Serum - 75ML</td>
-                        <td>27, 450</td>
-                        <td>1</td>
-                        <td>27,450</td>
-                    </tr>
-
-                    <tr>
-                        <th>3</th>
-                        <td>Bought Ageless Rejuvenating Serum - 75ML</td>
-                        <td>27, 450</td>
-                        <td>1</td>
-                        <td>27,450</td>
-                    </tr>
-
+                   <?php echo $table_body ?>
                     <tfoot>
 
                         <tr>
                             <th></th>
                             <td>Total</td>
                             <td></td>
-                            <td>3</td>
-                            <td>82,350</td>
+                            <td><?php echo $total_quantity ?> </td>
+                            <td><?php echo $total_price ?> </td>
                         </tr>
 
                     </tfoot>
@@ -204,12 +192,12 @@
 
                 <p>
                     <b>Status :</b>
-                    <span>-Unpaid</span>
+                    <span>-<?php echo ucfirst($status); ?></span>
                 </p>
 
                 <p>
                     <b>Total: </b>
-                    <span>&#8358;82,350</span>
+                    <span><?php echo "&#8358;$total_price"?></span>
                 </p>
 
             </div>
@@ -227,15 +215,16 @@
 
                 </button>
             </div>
-
-            <a href="./payment.html" class="button">Proceed to payment</a>
+           <?php if(!$is_paid){ ?>
+            <a href="<?php echo $payment_processor_url ?>" class="button">Proceed to payment</a>
+            <?php } ?>
 
         </div>
 
 
 
     </div>
-
+  
     <!-- Content -->
     <script src="./assets/js/index.js"></script> <!-- TODO: Update app entry point -->
     <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->
@@ -247,5 +236,6 @@
         ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
     </script>
     <!-- <script src="https://www.google-analytics.com/analytics.js" async></script> -->
+    <?php }; ?>
 </body>
 </html>

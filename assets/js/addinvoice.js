@@ -32,7 +32,7 @@ window.addEventListener("load", ()=>{
                     
                     <label for="invoice-description[]" data-name="invoice-description-${(parseInt(invoiceCount) + 1)}">Description</label>
                     
-                    <textarea type="number" name="invoice-description-${(parseInt(invoiceCount) + 1)}" id="invoice-description-${(parseInt(invoiceCount) + 1)}" placeholder="Description..." data-name="invoice-description-${(parseInt(invoiceCount) + 1)}" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="100" data-required="true" ></textarea>
+                    <textarea type="number" name="invoice-description[]" id="invoice-description-${(parseInt(invoiceCount) + 1)}" placeholder="Description..." data-name="invoice-description-${(parseInt(invoiceCount) + 1)}" data-name-err="" data-required-err="This field is required" data-min-err="" data-max-err="" data-regex-err="" data-regex="" data-min="" data-max="100" data-required="true" ></textarea>
                     <p class="form-err" data-name="invoice-description-${(parseInt(invoiceCount) + 1)}">
                         this is an error
                     </p>

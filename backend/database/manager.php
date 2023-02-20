@@ -288,6 +288,19 @@ use mysqli;
           }
 
           /**
+          * execute an insert statement against the database
+          *
+          * @param string $sql
+          * @param string|array|int $param
+          */
+
+          public function insert(string $sql , $params = null)
+          {
+             $this->execute_query($sql , $params);
+            
+          }
+
+          /**
            * get the last error
            * 
            */

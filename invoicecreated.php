@@ -1,9 +1,24 @@
+<?php
+ $invoice_id = isset($_GET["id"]) ? htmlspecialchars($_GET["id"]) : null;
+ $eid = isset($_GET["eid"]) ? htmlspecialchars($_GET["eid"]) : null;
+ $email = base64_decode($eid);
+ if(is_null($invoice_id) && is_null($eid)){
+    $url = "http://" . $_SERVER["HTTP_HOST"] . "/index.php";
+    header("status: 301");
+    header("Location: $url");
+    exit;
+ } else {
+  $url = "http://" . $_SERVER["HTTP_HOST"] . "/index.php?id=$invoice_id";
+ }
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width"> -->
-    <title>Payment Success for isaacseun63@gmail.com</title> <!-- TODO: update page title -->
+    <title>invoice creation successful</title> <!-- TODO: update page title -->
     <script type="module">
             document.documentElement.classList.remove('no-js');
             document.documentElement.classList.add('js');
@@ -26,51 +41,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">  <!-- TODO: Update styles -->
     <link rel="stylesheet" href="./assets/css/index.css">  <!-- TODO: Update styles -->
     <link rel="stylesheet" href="./assets/css/index.css" media="print">
+    
+    <script src="./assets/plugin/lottie_player/lottie-player.js"></script>
 </head>
-<body>
+<body class="column align-center justify-center">
 
     <div class="background-image-container">
         <img src="./assets/images/logo.jpg" alt="jagshood" />
     </div>
 
-    <div class="main-body login-body">
-
-        <div class="details flex justify-center">
-            <h4>Login</h4>
+    <div class="payment-response-container flex align-center">
+        <div class="animation-element">
+            <lottie-player class="lottie-animation" src="./assets/lottie/96673-success.json" background="transparent"  speed="1" autoplay></lottie-player>
         </div>
-
-        
-        <div class="details">
-            <form action="" method="post" class="flex space-between wrap">
     
-                <div class="form-content full-width">
-                    <label for="username" data-name="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="Your username">
-                    <p class="form-err" data-name="username">
-                        this is an error
-                    </p>
-                </div>
-
-                <div class="form-content full-width">
-                    <label for="password" data-name="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Your password">
-                    <p class="form-err" data-name="password">
-                        this is an error
-                    </p>
-                </div>
-
-                <div class="form-content action-btn-container row full-width flex justify-end">
-                    <button type="submit">
-                        Login
-                    </button>
-                </div>
-    
-            </form>
-            
-        </div>
-
+        <h4>You've successfully created an invoice for <?php echo $email ?></h4>
 
     </div>
+
+    <a class="extra-link" href="<?php echo $url ?>">View Invoice</a>
 
     <!-- Content -->
     <script src="./assets/js/index.js"></script> <!-- TODO: Update app entry point -->
