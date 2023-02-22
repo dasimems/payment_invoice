@@ -688,9 +688,23 @@ function addInputEventListener(){
 
 }
 
+function performButtonAction(action) {
+
+    switch (action){
+
+        case "print":
+            window.print();
+
+        default:
+            return;
+    }
+
+}
+
 window.addEventListener("load", () => {
     var formChangeButton = All(".form-change-btn");
     var forms = All("form");
+    var pageButtons = All("button");
 
     formChangeButton.forEach((element) => {
         element.addEventListener("click", (e)=>{
@@ -700,6 +714,22 @@ window.addEventListener("load", () => {
             
 
         })
+    })
+
+    pageButtons.forEach((element) => {
+
+        if(element.hasAttribute("data-action")){
+
+            
+            element.addEventListener("click", ()=>{
+
+                var action = element.getAttribute("data-action");
+                
+                performButtonAction(action);
+            })
+
+        }
+        
     })
 
     addInputEventListener();

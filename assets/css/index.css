@@ -9,6 +9,8 @@
     --danger-light-medium: rgba(255, 25, 20, .5);
     --text-primary: black;
     --text-primary-two: white;
+    --horizontal-padding: 5%;
+    --header-height: 70px;
 }
 
 *{
@@ -63,6 +65,8 @@ input[type=number]{
 .wrap{
     flex-wrap: wrap;
 }
+
+
 
 a{
     text-decoration: none;
@@ -136,6 +140,10 @@ body{
 
 }
 
+.padding-0{
+    padding: 0;
+}
+
 .paid-container,
 .payment-approve-container,
 .background-image-container{
@@ -201,6 +209,10 @@ body{
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     padding: 30px 20px;
+}
+
+.main-body.full-width{
+    max-width: unset;
 }
 
 .login-body{
@@ -349,6 +361,30 @@ td{
 
 }
 
+.fixed{
+    position: fixed;
+}
+
+.absolute{
+    position: absolute;
+}
+
+.top-0{
+    top: 0px;
+}
+
+.left-0{
+    left: 0px;
+}
+
+.right-0{
+    right: 0px;
+}
+
+.bottom-0{
+    bottom: 0px;
+}
+
 .input-form-image input{
     width: 100%;
     position: absolute;
@@ -391,6 +427,10 @@ button[type="submit"]{
 
 .bank-transfer ul{
     padding-left: 25px;
+}
+
+.h-30{
+    height: 30px;
 }
 
 .card-payment{
@@ -482,6 +522,93 @@ button[type="submit"]{
     -o-transform: scaleY(1);
 }
 
+.nav{
+    padding: 0px var(--horizontal-padding);
+    height: var(--header-height);
+    background: white;
+    z-index: 9;
+}
+
+
+.nav-logo{
+    max-height: 50px;
+}
+
+.invoice{
+    padding: 0px;
+}
+
+.main-content{
+    padding: calc(var(--header-height) + 30px) var(--horizontal-padding);
+}
+
+.add-invoice-button{
+    font-size: 0.9rem;
+    margin-left: 0px;
+    flex-shrink: 0;
+}
+
+.search-form{
+    width: 100%;
+    max-width: 300px;
+}
+
+.search-form .search-box,
+.search-form .search-button{
+    background: transparent;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, .4);
+    outline: none;
+}
+
+.search-form .search-box:focus{
+    border: 2px solid rgba(0, 0, 0, .4);
+    border-right: none;
+}
+
+.search-form .search-box:focus ~ .search-form .search-button{
+    border: 2px solid rgba(0, 0, 0, .4);
+    border-left: none;
+
+}
+
+.unpaid{
+    color: var(--danger);
+}
+
+.paid{
+    color: var(--bg-primary);
+}
+
+.search-form .search-box{
+    flex: 1;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 0px 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: none;
+}
+
+.search-form .search-button{
+    padding: 0px;
+    width: 40px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: none;
+    color: rgba(0, 0, 0, .7);
+}
+
+.empty-invoice-animation{
+    max-width: 300px;
+}
+
+.opacity-75{
+    opacity: 0.75;
+}
 
 @media print {
    .main-body{
