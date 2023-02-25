@@ -19,7 +19,7 @@ $sql = "SELECT name , email , telephone , total_price from invoice where id = ?"
         $currency = "NGN";
         $api_key = fetch_config::get_instance()->get('flutter_api_key');
         $tx_ref = base64_encode(random_bytes(10));
-        $verify_url = $_SERVER["HTTP_HOST"] . "/verify_payment.php";
+        $verify_url = "https://" . $_SERVER["HTTP_HOST"] . "/verify_payment.php";
          try {
      $http = HttpClient::create(["auth_bearer" => $api_key]);
      $res = $http->request("POST" , 'https://api.flutterwave.com/v3/payments' ,
@@ -37,7 +37,17 @@ $sql = "SELECT name , email , telephone , total_price from invoice where id = ?"
                
         $status = $res->getStatusCode();
         $data = $res->toArray();
-        $status = $data["status"];    
+        $status = $data["status"];
+        if($status === "success"){
+          $link = $data["data"]["link"];
+          header("Status: 301");
+          header("Location: $link");
+          exit("redirecting you to the payment page");
+           
+        }    else 
+        {
+           die("oops! " . $data["message"]);
+        }
             
         }
         catch (Exception $e){

@@ -38,7 +38,7 @@
         break;
         default: $date = $date . "th";
   }
-  $date = $date . " " . date("M  Y" , );
+  $date = $date . " " . date("M  Y" , $time);
   $table_body = "";
   $total_quantity = 0;
   for ($i = 0; $i < count($price); $i++){

@@ -197,7 +197,7 @@ trait HttpClientTrait
         if ($resolve = $options['resolve'] ?? false) {
             $options['resolve'] = [];
             foreach ($resolve as $k => $v) {
-                $options['resolve'][substr(self::parseUrl('http://'.$k)['authority'], 2)] = (string) $v;
+                $options['resolve'][substr(self::parseUrl('https://'.$k)['authority'], 2)] = (string) $v;
             }
         }
 
@@ -220,7 +220,7 @@ trait HttpClientTrait
 
         if ($resolve = $defaultOptions['resolve'] ?? false) {
             foreach ($resolve as $k => $v) {
-                $options['resolve'] += [substr(self::parseUrl('http://'.$k)['authority'], 2) => (string) $v];
+                $options['resolve'] += [substr(self::parseUrl('https://'.$k)['authority'], 2) => (string) $v];
             }
         }
 

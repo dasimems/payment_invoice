@@ -124,7 +124,7 @@
       $valid_session = validate_token($session_id);
       if(!$valid_session){
         $page = $_SERVER["REQUEST_URI"];
-        $page = "http://" . $_SERVER["HTTP_HOST"] . "/login.php?redir=" . urlencode($page);
+        $page = "https://" . $_SERVER["HTTP_HOST"] . "/login.php?redir=" . urlencode($page);
         //echo $page;
         header("Status: 301");
         header("Location: $page");

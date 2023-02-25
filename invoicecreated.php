@@ -3,12 +3,12 @@
  $eid = isset($_GET["eid"]) ? htmlspecialchars($_GET["eid"]) : null;
  $email = base64_decode($eid);
  if(is_null($invoice_id) && is_null($eid)){
-    $url = "http://" . $_SERVER["HTTP_HOST"] . "/index.php";
+    $url = "https://" . $_SERVER["HTTP_HOST"] . "/index.php";
     header("status: 301");
     header("Location: $url");
     exit;
  } else {
-  $url = "http://" . $_SERVER["HTTP_HOST"] . "/index.php?id=$invoice_id";
+  $url = "https://" . $_SERVER["HTTP_HOST"] . "/index.php?id=$invoice_id";
  }
  
 ?>

@@ -57,7 +57,7 @@ trait HttpExceptionTrait
         // Ex: JSON:API follows RFC 7807 semantics, Hydra can be used in any JSON-LD-compatible format
         if ($isJson && $body = json_decode($response->getContent(false), true)) {
             if (isset($body['hydra:title']) || isset($body['hydra:description'])) {
-                // see http://www.hydra-cg.com/spec/latest/core/#description-of-http-status-codes-and-errors
+                // see https://www.hydra-cg.com/spec/latest/core/#description-of-http-status-codes-and-errors
                 $separator = isset($body['hydra:title'], $body['hydra:description']) ? "\n\n" : '';
                 $message = ($body['hydra:title'] ?? '').$separator.($body['hydra:description'] ?? '');
             } elseif ((isset($body['title']) || isset($body['detail']))

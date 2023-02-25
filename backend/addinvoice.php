@@ -25,11 +25,11 @@
      json_encode($invoice_quantity) ,  json_encode($invoice_description) , $total_price,
      "pending"];
      $eid = base64_encode($email);
-     $url = "http://" . $_SERVER["HTTP_HOST"] . "/invoicecreated.php?id=$id&eid=$eid";
+     $url = "https://" . $_SERVER["HTTP_HOST"] . "/invoicecreated.php?id=$id&eid=$eid";
      try {
          $database->insert($sql , $values);
         //send the email to the customer and redirect to the url
-        header("Status: 302");
+        header("Status: 301");
        header("Location: $url");
         exit;
      } catch(Exception $e){

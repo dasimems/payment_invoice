@@ -12,7 +12,7 @@ require "backend/functions.php";
        break;
        default: $date = $date . "th";
  }
- $date = $date . " " . date("M  Y" , );
+ $date = $date . " " . date("M  Y" , $time);
  header("Content-Security-Policy: script-src 'nonce-$nonce'");
 
 
