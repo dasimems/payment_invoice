@@ -197,7 +197,7 @@ trait HttpClientTrait
         if ($resolve = $options['resolve'] ?? false) {
             $options['resolve'] = [];
             foreach ($resolve as $k => $v) {
-                $options['resolve'][substr(self::parseUrl('https://'.$k)['authority'], 2)] = (string) $v;
+                $options['resolve'][substr(self::parseUrl('http://'.$k)['authority'], 2)] = (string) $v;
             }
         }
 
@@ -220,7 +220,7 @@ trait HttpClientTrait
 
         if ($resolve = $defaultOptions['resolve'] ?? false) {
             foreach ($resolve as $k => $v) {
-                $options['resolve'] += [substr(self::parseUrl('https://'.$k)['authority'], 2) => (string) $v];
+                $options['resolve'] += [substr(self::parseUrl('http://'.$k)['authority'], 2) => (string) $v];
             }
         }
 
@@ -439,7 +439,7 @@ trait HttpClientTrait
     /**
      * Resolves a URL against a base URI.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-5.2.2
+     * @see http://tools.ietf.org/html/rfc3986#section-5.2.2
      *
      * @throws InvalidArgumentException When an invalid URL is passed
      */
@@ -542,11 +542,11 @@ trait HttpClientTrait
             }
 
             if (str_contains($parts[$part], '%')) {
-                // https://tools.ietf.org/html/rfc3986#section-2.3
+                // http://tools.ietf.org/html/rfc3986#section-2.3
                 $parts[$part] = preg_replace_callback('/%(?:2[DE]|3[0-9]|[46][1-9A-F]|5F|[57][0-9A]|7E)++/i', function ($m) { return rawurldecode($m[0]); }, $parts[$part]);
             }
 
-            // https://tools.ietf.org/html/rfc3986#section-3.3
+            // http://tools.ietf.org/html/rfc3986#section-3.3
             $parts[$part] = preg_replace_callback("#[^-A-Za-z0-9._~!$&/'()*+,;=:@%]++#", function ($m) { return rawurlencode($m[0]); }, $parts[$part]);
         }
 
@@ -562,7 +562,7 @@ trait HttpClientTrait
     /**
      * Removes dot-segments from a path.
      *
-     * @see https://tools.ietf.org/html/rfc3986#section-5.2.4
+     * @see http://tools.ietf.org/html/rfc3986#section-5.2.4
      */
     private static function removeDotSegments(string $path)
     {

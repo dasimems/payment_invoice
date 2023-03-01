@@ -35,7 +35,7 @@ class MockHttpClient implements HttpClientInterface, ResetInterface
     /**
      * @param callable|callable[]|ResponseInterface|ResponseInterface[]|iterable|null $responseFactory
      */
-    public function __construct($responseFactory = null, ?string $baseUri = 'https://example.com')
+    public function __construct($responseFactory = null, ?string $baseUri = 'http://example.com')
     {
         $this->setResponseFactory($responseFactory);
         $this->defaultOptions['base_uri'] = $baseUri;

@@ -2,7 +2,7 @@
     "name": "symfony/http-client",
     "type": "library",
     "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
-    "homepage": "https://symfony.com",
+    "homepage": "http://symfony.com",
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,7 @@
         },
         {
             "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "homepage": "http://symfony.com/contributors"
         }
     ],
     "provide": {

@@ -18,8 +18,8 @@ class DNSCheckValidation implements EmailValidation
     protected const DNS_RECORD_TYPES_TO_CHECK = DNS_MX + DNS_A + DNS_AAAA;
 
     /**
-     * Reserved Top Level DNS Names (https://tools.ietf.org/html/rfc2606#section-2),
-     * mDNS and private DNS Namespaces (https://tools.ietf.org/html/rfc6762#appendix-G)
+     * Reserved Top Level DNS Names (http://tools.ietf.org/html/rfc2606#section-2),
+     * mDNS and private DNS Namespaces (http://tools.ietf.org/html/rfc6762#appendix-G)
      */
     public const RESERVED_DNS_TOP_LEVEL_NAMES = [
         // Reserved Top Level DNS Names
@@ -178,7 +178,7 @@ class DNSCheckValidation implements EmailValidation
             return true;
         }
 
-        // "Null MX" record indicates the domain accepts no mail (https://tools.ietf.org/html/rfc7505)
+        // "Null MX" record indicates the domain accepts no mail (http://tools.ietf.org/html/rfc7505)
         if (empty($dnsRecord['target']) || $dnsRecord['target'] === '.') {
             $this->error = new InvalidEmail(new DomainAcceptsNoMail(), "");
             return false;

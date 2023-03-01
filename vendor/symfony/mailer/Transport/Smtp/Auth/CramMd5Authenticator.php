@@ -28,7 +28,7 @@ class CramMd5Authenticator implements AuthenticatorInterface
     /**
      * {@inheritdoc}
      *
-     * @see https://www.ietf.org/rfc/rfc4954.txt
+     * @see http://www.ietf.org/rfc/rfc4954.txt
      */
     public function authenticate(EsmtpTransport $client): void
     {

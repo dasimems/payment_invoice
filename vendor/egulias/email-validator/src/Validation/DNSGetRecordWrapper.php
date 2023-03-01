@@ -9,7 +9,7 @@ class DNSGetRecordWrapper
      */
     public function getRecords(string $host, int $type) : DNSRecords
     {
-        // A workaround to fix https://bugs.php.net/bug.php?id=73149
+        // A workaround to fix http://bugs.php.net/bug.php?id=73149
         /** @psalm-suppress InvalidArgument */
         set_error_handler(
             static function (int $errorLevel, string $errorMessage): ?bool {

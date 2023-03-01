@@ -14,7 +14,7 @@ if ('cli' !== \PHP_SAPI) {
 }
 
 // load new map
-$data = json_decode(file_get_contents('https://cdn.jsdelivr.net/gh/jshttp/mime-db@v1.49.0/db.json'), true);
+$data = json_decode(file_get_contents('http://cdn.jsdelivr.net/gh/jshttp/mime-db@v1.49.0/db.json'), true);
 $new = [];
 foreach ($data as $mimeType => $mimeTypeInformation) {
     if (!array_key_exists('extensions', $mimeTypeInformation)) {
@@ -23,7 +23,7 @@ foreach ($data as $mimeType => $mimeTypeInformation) {
     $new[$mimeType] = $mimeTypeInformation['extensions'];
 }
 
-$xml = simplexml_load_string(file_get_contents('https://gitlab.freedesktop.org/xdg/shared-mime-info/-/raw/master/data/freedesktop.org.xml.in'));
+$xml = simplexml_load_string(file_get_contents('http://gitlab.freedesktop.org/xdg/shared-mime-info/-/raw/master/data/freedesktop.org.xml.in'));
 foreach ($xml as $node) {
     $exts = [];
     foreach ($node->glob as $glob) {

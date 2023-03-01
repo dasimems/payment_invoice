@@ -67,7 +67,7 @@ final class Token implements ArrayAccess
     {
         Deprecation::trigger(
             'doctrine/lexer',
-            'https://github.com/doctrine/lexer/pull/79',
+            'http://github.com/doctrine/lexer/pull/79',
             'Accessing %s properties via ArrayAccess is deprecated, use the value, type or position property instead',
             self::class
         );
@@ -103,7 +103,7 @@ final class Token implements ArrayAccess
     {
         Deprecation::trigger(
             'doctrine/lexer',
-            'https://github.com/doctrine/lexer/pull/79',
+            'http://github.com/doctrine/lexer/pull/79',
             'Accessing %s properties via ArrayAccess is deprecated, use the value, type or position property instead',
             self::class
         );
@@ -119,7 +119,7 @@ final class Token implements ArrayAccess
     {
         Deprecation::trigger(
             'doctrine/lexer',
-            'https://github.com/doctrine/lexer/pull/79',
+            'http://github.com/doctrine/lexer/pull/79',
             'Setting %s properties via ArrayAccess is deprecated',
             self::class
         );
@@ -135,7 +135,7 @@ final class Token implements ArrayAccess
     {
         Deprecation::trigger(
             'doctrine/lexer',
-            'https://github.com/doctrine/lexer/pull/79',
+            'http://github.com/doctrine/lexer/pull/79',
             'Setting %s properties via ArrayAccess is deprecated',
             self::class
         );

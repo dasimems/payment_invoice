@@ -17,7 +17,7 @@ use Symfony\Polyfill\Intl\Idn\Resources\unidata\DisallowedRanges;
 use Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
 
 /**
- * @see https://www.unicode.org/reports/tr46/
+ * @see http://www.unicode.org/reports/tr46/
  *
  * @internal
  */
@@ -136,7 +136,7 @@ final class Idn
     private static $mappingTableLoaded = false;
 
     /**
-     * @see https://www.unicode.org/reports/tr46/#ToASCII
+     * @see http://www.unicode.org/reports/tr46/#ToASCII
      *
      * @param string $domainName
      * @param int    $options
@@ -189,7 +189,7 @@ final class Idn
     }
 
     /**
-     * @see https://www.unicode.org/reports/tr46/#ToUnicode
+     * @see http://www.unicode.org/reports/tr46/#ToUnicode
      *
      * @param string $domainName
      * @param int    $options
@@ -264,7 +264,7 @@ final class Idn
     }
 
     /**
-     * @see https://www.unicode.org/reports/tr46/#ProcessingStepMap
+     * @see http://www.unicode.org/reports/tr46/#ProcessingStepMap
      *
      * @param string              $input
      * @param array<string, bool> $options
@@ -312,7 +312,7 @@ final class Idn
     }
 
     /**
-     * @see https://www.unicode.org/reports/tr46/#Processing
+     * @see http://www.unicode.org/reports/tr46/#Processing
      *
      * @param string              $domain
      * @param array<string, bool> $options
@@ -375,7 +375,7 @@ final class Idn
     }
 
     /**
-     * @see https://tools.ietf.org/html/rfc5893#section-2
+     * @see http://tools.ietf.org/html/rfc5893#section-2
      *
      * @param string $label
      */
@@ -479,7 +479,7 @@ final class Idn
     }
 
     /**
-     * @see https://www.unicode.org/reports/tr46/#Validity_Criteria
+     * @see http://www.unicode.org/reports/tr46/#Validity_Criteria
      *
      * @param string              $label
      * @param array<string, bool> $options
@@ -563,7 +563,7 @@ final class Idn
     }
 
     /**
-     * @see https://tools.ietf.org/html/rfc3492#section-6.2
+     * @see http://tools.ietf.org/html/rfc3492#section-6.2
      *
      * @param string $input
      *
@@ -651,7 +651,7 @@ final class Idn
     }
 
     /**
-     * @see https://tools.ietf.org/html/rfc3492#section-6.3
+     * @see http://tools.ietf.org/html/rfc3492#section-6.3
      *
      * @param string $input
      *
@@ -744,7 +744,7 @@ final class Idn
     }
 
     /**
-     * @see https://tools.ietf.org/html/rfc3492#section-6.1
+     * @see http://tools.ietf.org/html/rfc3492#section-6.1
      *
      * @param int  $delta
      * @param int  $numPoints
@@ -782,7 +782,7 @@ final class Idn
      * Takes a UTF-8 encoded string and converts it into a series of integer code points. Any
      * invalid byte sequences will be replaced by a U+FFFD replacement code point.
      *
-     * @see https://encoding.spec.whatwg.org/#utf-8-decoder
+     * @see http://encoding.spec.whatwg.org/#utf-8-decoder
      *
      * @param string $input
      *

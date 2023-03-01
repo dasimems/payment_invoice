@@ -7,7 +7,7 @@ Note that this is not a Container implementation of its own. It is merely abstra
 
 The installable [package][package-url] and [implementations][implementation-url] are listed on Packagist.
 
-[psr-url]: https://www.php-fig.org/psr/psr-11/
-[package-url]: https://packagist.org/packages/psr/container
-[implementation-url]: https://packagist.org/providers/psr/container-implementation
+[psr-url]: http://www.php-fig.org/psr/psr-11/
+[package-url]: http://packagist.org/packages/psr/container
+[implementation-url]: http://packagist.org/providers/psr/container-implementation
 

@@ -58,7 +58,7 @@ final class CurlClientState extends ClientState
             curl_multi_setopt($this->handle, \CURLMOPT_MAXCONNECTS, $maxHostConnections);
         }
 
-        // Skip configuring HTTP/2 push when it's unsupported or buggy, see https://bugs.php.net/77535
+        // Skip configuring HTTP/2 push when it's unsupported or buggy, see http://bugs.php.net/77535
         if (0 >= $maxPendingPushes || \PHP_VERSION_ID < 70217 || (\PHP_VERSION_ID >= 70300 && \PHP_VERSION_ID < 70304)) {
             return;
         }

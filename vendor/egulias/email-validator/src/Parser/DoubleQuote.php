@@ -70,7 +70,7 @@ class DoubleQuote extends PartParser
         $previous = $this->lexer->getPrevious();
 
         if ($this->lexer->isNextToken(EmailLexer::GENERIC) && $previous['type'] === EmailLexer::GENERIC) {
-            $description = 'https://tools.ietf.org/html/rfc5322#section-3.2.4 - quoted string should be a unit';
+            $description = 'http://tools.ietf.org/html/rfc5322#section-3.2.4 - quoted string should be a unit';
             return new InvalidEmail(new ExpectingATEXT($description), $this->lexer->token['value']);
         }
 

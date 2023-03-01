@@ -265,7 +265,7 @@ abstract class AbstractLexer
         $matches = preg_split($this->regex, $input, -1, $flags);
 
         if ($matches === false) {
-            // Work around https://bugs.php.net/78122
+            // Work around http://bugs.php.net/78122
             $matches = [[$input, 0]];
         }
 

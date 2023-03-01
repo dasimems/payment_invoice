@@ -123,9 +123,9 @@
       $session_id = isset($_SESSION["login_session"]) ? $_SESSION["login_session"] : "null";
       $valid_session = validate_token($session_id);
       if(!$valid_session){
-        $page = $_SERVER["REQUEST_URI"];
-        $page = "https://" . $_SERVER["HTTP_HOST"] . "/login.php?redir=" . urlencode($page);
-        //echo $page;
+        $page = isset($_SERVER["REQUEST_URI"]) ? rtrim($_SERVER["REQUEST_URI"] , "/") : "";
+        $param = !empty($page) ? "?redir=" .urlencode($page) : "";
+        $page = "http://" . $_SERVER["HTTP_HOST"] . "/login.php" . $param;
         header("Status: 301");
         header("Location: $page");
         exit;

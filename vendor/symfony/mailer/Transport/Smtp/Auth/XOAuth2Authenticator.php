@@ -18,7 +18,7 @@ use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
  *
  * @author xu.li<AthenaLightenedMyPath@gmail.com>
  *
- * @see https://developers.google.com/google-apps/gmail/xoauth2_protocol
+ * @see http://developers.google.com/google-apps/gmail/xoauth2_protocol
  */
 class XOAuth2Authenticator implements AuthenticatorInterface
 {
@@ -30,7 +30,7 @@ class XOAuth2Authenticator implements AuthenticatorInterface
     /**
      * {@inheritdoc}
      *
-     * @see https://developers.google.com/google-apps/gmail/xoauth2_protocol#the_sasl_xoauth2_mechanism
+     * @see http://developers.google.com/google-apps/gmail/xoauth2_protocol#the_sasl_xoauth2_mechanism
      */
     public function authenticate(EsmtpTransport $client): void
     {

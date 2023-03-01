@@ -4,7 +4,7 @@ awareness about deprecated code.
 - Use of `@deprecated` docblock that is detected by IDEs (like PHPStorm) or
   Static Analysis tools (like Psalm, phpstan)
 - Use of our low-overhead runtime deprecation API, details:
-  https://github.com/doctrine/deprecations/
+  http://github.com/doctrine/deprecations/
 
 # Upgrade to 2.0.0
 

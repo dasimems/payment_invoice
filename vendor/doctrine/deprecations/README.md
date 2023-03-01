@@ -47,7 +47,7 @@ foreach ($deprecations as $identifier => $count) {
 Disable triggering about specific deprecations:
 
 ```php
-\Doctrine\Deprecations\Deprecation::ignoreDeprecations("https://link/to/deprecations-description-identifier");
+\Doctrine\Deprecations\Deprecation::ignoreDeprecations("http://link/to/deprecations-description-identifier");
 ```
 
 Disable all deprecations from a package
@@ -79,7 +79,7 @@ from the library itself then the `trigger` method is the way to go:
 ```php
 \Doctrine\Deprecations\Deprecation::trigger(
     "doctrine/orm",
-    "https://link/to/deprecations-description",
+    "http://link/to/deprecations-description",
     "message"
 );
 ```
@@ -90,7 +90,7 @@ the message.
 ```php
 \Doctrine\Deprecations\Deprecation::trigger(
     "doctrine/orm",
-    "https://github.com/doctrine/orm/issue/1234",
+    "http://github.com/doctrine/orm/issue/1234",
     "message %s %d",
     "foo",
     1234
@@ -104,7 +104,7 @@ then use:
 ```php
 \Doctrine\Deprecations\Deprecation::triggerIfCalledFromOutside(
     "doctrine/orm",
-    "https://link/to/deprecations-description",
+    "http://link/to/deprecations-description",
     "message"
 );
 ```
@@ -133,14 +133,14 @@ class MyTest extends TestCase
 
     public function testSomethingDeprecation()
     {
-        $this->expectDeprecationWithIdentifier('https://github.com/doctrine/orm/issue/1234');
+        $this->expectDeprecationWithIdentifier('http://github.com/doctrine/orm/issue/1234');
 
         triggerTheCodeWithDeprecation();
     }
 
     public function testSomethingDeprecationFixed()
     {
-        $this->expectNoDeprecationWithIdentifier('https://github.com/doctrine/orm/issue/1234');
+        $this->expectNoDeprecationWithIdentifier('http://github.com/doctrine/orm/issue/1234');
 
         triggerTheCodeWithoutDeprecation();
     }
