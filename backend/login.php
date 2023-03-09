@@ -3,8 +3,6 @@
 
   session_start();
   if(validate_csrf_token()){
- //password is jagshoodpasswordhardmnbvcxz
- //jagshoodadminuser 
   $error = '<p style=" font-size: 0.7rem; color: var(--danger) !important; margin: 4px">%s</p>';
 
   $username = isset($_POST["username"]) ? htmlspecialchars($_POST["username"]) : null;
