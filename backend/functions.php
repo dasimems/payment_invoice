@@ -9,7 +9,7 @@
  function validate_csrf_token(){
         $token = isset($_POST["csrf-token"]) ? $_POST["csrf-token"] : null;
         $stored_token = isset($_SESSION["csrf_token"]) ? $_SESSION["csrf_token"] : null;
-        session_unset();
+        unset($_SESSION["csrf_token"]);
         unset($_POST["csrf-token"]);
         return $token === $stored_token;
         

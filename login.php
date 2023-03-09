@@ -1,9 +1,10 @@
 <?php
  require "backend/functions.php";
  session_start();
+
  $csrf_token = generate_csrf_token();
  $nonce = base64_encode(random_bytes(14));
-
+ $redir = (isset($_GET["redir"]) && !empty($_GET["redir"])) ? "?redir=" . urlencode($_GET["redir"]) : "";
  header("Content-Security-Policy: script-src 'nonce-$nonce'");
 
  ?>
@@ -51,7 +52,7 @@
 
         
         <div class="details">
-            <form action="./backend/login.php" method="post" class="flex space-between wrap">
+            <form action="./backend/login.php<?php echo $redir ?>" method="post" class="flex space-between wrap">
                 <input type="hidden" name="csrf-token" value="<?php echo $csrf_token ?>">
                 <div class="form-content full-width">
                     <label for="username" data-name="username">Username</label>
@@ -78,7 +79,7 @@
                 </div>
 
                 <div class="form-content action-btn-container row full-width flex justify-end">
-                    <button type="submit">
+                    <button type="submit" name="submit">
                         Login
                     </button>
                 </div>

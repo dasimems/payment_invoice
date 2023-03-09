@@ -5,11 +5,11 @@
  session_start();
  check_login();
 
- $sql = "SELECT `id`,  `quantity`, `total_price`, `status`, 
+ $sql = "SELECT `id`, `description` , `email` , `quantity`, `total_price`, `status`, 
    `created_at` FROM `invoice` ";
  $result = $database->select($sql);
  $table = "";
- $no_result = is_null($result) ? true : false;
+ $no_result = (is_null($result) || empty($result)) ? true : false;
  $no = 0;
     
  foreach($result as $row){
@@ -38,8 +38,14 @@
         default: $date = $date . "th";
   }
   $id = $row["id"];
+  $des = json_decode($row["description"]);
+  $description = $des[0];
+  $description = (strlen($description) >= 30) ? substr($description , 0 , 29) . '...' : $description;
+  $des_count = (count($des) > 1) ? "<strong> +" . count($des) . "</strong>" : "";
+  $email = $row["email"];
   $date = $date . " , " . date("M , Y" , $time);
-   $table .= '<tr><th>' . ($no + 1) . "</th><td>$date</td><td>" .
+   $table .= '<tr><th>' . ($no + 1) . "</th><td>$description" . $des_count. "</td>
+ <td>$date</td><td>$email<td>" .
     $total_quantity . "</td><td>$total_price</td><td>" . $status_th .
    '</td><td><a href="invoice.php?id=' . $id . '" class="view-btn">View</a></td></tr>';
    $no++;

@@ -20,7 +20,7 @@
         <div class="template-content" style="background: rgba(0, 0, 0, .01);">
 
             <div class="template-logo">
-                <img src="./assets/images/logo.jpg" style="width: 100%;" alt="">
+            <img src="data:image/png;base64,{{data.image}}" style="width: 100%;" alt="img">
     
             </div>
     
@@ -44,44 +44,7 @@
                         </tr>
                     </thead>
     
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Bought Ageless Rejuvenating Serum - 75ML</td>
-                            <td>27, 450</td>
-                            <td>1</td>
-                            <td>27,450</td>
-                        </tr>
-    
-                        <tr style="background: rgba(70,96,80, .3);">
-                            <th>2</th>
-                            <td>Bought Ageless Rejuvenating Serum - 75ML</td>
-                            <td>27, 450</td>
-                            <td>1</td>
-                            <td>27,450</td>
-                        </tr>
-    
-                        <tr>
-                            <th>3</th>
-                            <td>Bought Ageless Rejuvenating Serum - 75ML</td>
-                            <td>27, 450</td>
-                            <td>1</td>
-                            <td>27,450</td>
-                        </tr>
-    
-                        <tfoot>
-    
-                            <tr style="background: rgba(70,96,80, .3);">
-                                <th></th>
-                                <td>Total</td>
-                                <td></td>
-                                <td>3</td>
-                                <td>82,350</td>
-                            </tr>
-    
-                        </tfoot>
-    
-                    </tbody>
+                    <tbody> {{data.table}} </tbody>
                 </table>
     
             </div>
@@ -89,7 +52,7 @@
             <div class="template-action" style="display: flex; justify-content: center; margin-top: 40px;">
     
                 <!-- this link will take them to their invoice details -->
-                <a style="padding: 10px 15px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; background: transparent; border: 1px solid rgba(0, 0, 0, .3); background: rgb(70,96,80); color: white; cursor: pointer; border: 2px solid rgb(70,96,80); text-decoration: none;" href="./">View Invoice</a>
+                <a style="padding: 10px 15px; display: inline-flex; align-items: center; justify-content: center; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; -o-border-radius: 5px; background: transparent; border: 1px solid rgba(0, 0, 0, .3); background: rgb(70,96,80); color: white; cursor: pointer; border: 2px solid rgb(70,96,80); text-decoration: none;" href="{{data.invoice_url}}">View Invoice</a>
     
             </div>
     
@@ -104,18 +67,15 @@
                 </p>
     
                 <p>
-                            <a href="mailto: jagshood@gmail.com"> jagshood@gmail.com</a>
+                            <a href="mailto:jagshood@gmail.com"> jagshood@gmail.com</a>
                         </p>
     
                 <p>
-                    <a href="http://jagshood.com">Jagshood.com</a>
+                    <a href="{{data.url}}">Jagshood.com</a>
                 </p>
     
             </div>
         </div>
         
-
-        
-        <script src="" async defer></script>
     </body>
 </html>

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc46272af089421575959bb06f3f8ef8",
+    "content-hash": "b3f2572377df835fee00b3f12f8f2bf3",
     "packages": [
         {
             "name": "doctrine/deprecations",
@@ -572,6 +572,69 @@
                 }
             ],
             "time": "2022-01-02T09:53:40+00:00"
+        },
+        {
+            "name": "symfony/google-mailer",
+            "version": "v5.4.19",
+            "source": {
+                "type": "git",
+                "url": "http://github.com/symfony/google-mailer.git",
+                "reference": "a257a01e633b5b264fc186fc973342174d1537e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://api.github.com/repos/symfony/google-mailer/zipball/a257a01e633b5b264fc186fc973342174d1537e4",
+                "reference": "a257a01e633b5b264fc186fc973342174d1537e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "psr/event-dispatcher": "^1",
+                "symfony/mailer": "^4.4|^5.0|^6.0"
+            },
+            "type": "symfony-mailer-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Mailer\\Bridge\\Google\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "http://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Google Mailer Bridge",
+            "homepage": "http://symfony.com",
+            "support": {
+                "source": "http://github.com/symfony/google-mailer/tree/v5.4.19"
+            },
+            "funding": [
+                {
+                    "url": "http://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "http://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "http://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-01-01T08:32:19+00:00"
         },
         {
             "name": "symfony/http-client",

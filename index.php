@@ -71,7 +71,7 @@
             </div>
 
             <!-- Show this if there's no invoice details -->
-          <?php if($no_result = true){ ?>
+          <?php if($no_result){ ?>
             <div class="empty-invoice flex align-center column justify-center">
 
                 <lottie-player class="empty-invoice-animation" src="./assets/lottie/93134-not-found.json" background="transparent"  speed="1" autoplay></lottie-player>
@@ -84,7 +84,9 @@
                 <thead>
                     <tr>
                         <th>S/N</th>
+                        <th>Description</th>
                          <th>Date</th>
+                         <th>Email</th>
                         <th>Total Quantity</th>
                         <th>Total price(&#8358;)</th>
                         <th>Status</th>

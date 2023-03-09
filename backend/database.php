@@ -5,7 +5,7 @@
 use database\manager;
 
  require "database/manager.php";
-  require "fetch_config.php";
+ require_once "fetch_config.php";
  
   $config = fetch_config::get_instance()->get("database");
   $password = $config["password"];

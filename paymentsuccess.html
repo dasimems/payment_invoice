@@ -40,12 +40,11 @@
             <lottie-player class="lottie-animation" src="./assets/lottie/96673-success.json" background="transparent"  speed="1" autoplay></lottie-player>
         </div>
     
-        <h4>Your payment have been made successfully</h4>
+        <h4>{{data.message}}</h4>
 
     </div>
 
-    <a class="extra-link" href="./index.html">View Receipt</a>
-
+    {{data.link}}
     <!-- Content -->
     <script src="./assets/js/index.js"></script> <!-- TODO: Update app entry point -->
     <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> <!-- TODO: Add Modernizr js -->

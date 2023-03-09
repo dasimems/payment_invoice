@@ -6,7 +6,7 @@ use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mime\Email as MimeEmail;
 
  require  str_replace("\\" , "/", dirname(__DIR__) . "/vendor/autoload.php");
- require "fetch_config.php";
+ require_once "fetch_config.php";
 class email
 {
 
@@ -37,7 +37,8 @@ class email
           $username = $this->config["username"];
           $hostname = $this->config["host"];
           $port = !isset($this->config["port"]) ? 25 : $this->config["port"];
-          $dns = "$transport://$username:$password@$hostname:$port";
+          $dns = "$transport://$username:$password@$hostname:$port?encryption=tls&auth_mode=login";
+          //$dns = "native://default";
           $this->dns = $dns;
           
         }
@@ -48,6 +49,7 @@ class email
          */
         public function from(string $from){
                 $this->email->from($from);
+                return $this;
         }
 
         /**
@@ -58,6 +60,7 @@ class email
          public function to(string $recipient)
          {
                 $this->email->to($recipient);
+                 return $this;
          }
         
          /**
@@ -67,7 +70,8 @@ class email
 
           public function subject(string $subject)
           {
-              $this->email->subject($subject);      
+              $this->email->subject($subject);  
+              return $this;    
           }
 
           /**
@@ -77,6 +81,7 @@ class email
           public function text(string $message)
           {
               $this->email->text($message);
+              return $this;
           }
 
           /**
@@ -86,6 +91,7 @@ class email
           public function html(string $message)
           {
              $this->email->html($message);
+             return $this;
           }
 
           /**
@@ -95,6 +101,7 @@ class email
           public function add_attachment(string $path)
           {
                 $this->email->attachFromPath($path);
+                return $this;
           }
 
           /**
@@ -104,6 +111,7 @@ class email
           public function add_image($image , $alt)
           {
                 $this->email->embed($image , $alt);
+                return $this;
           }
 
           /**

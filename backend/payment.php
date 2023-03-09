@@ -19,6 +19,7 @@ $sql = "SELECT name , email , telephone , total_price from invoice where id = ?"
         $currency = "NGN";
         $api_key = fetch_config::get_instance()->get('flutter_api_key');
         $tx_ref = base64_encode(random_bytes(10));
+        $database->update("UPDATE `invoice` SET payment_id = ? WHERE id = ?" , [$tx_ref , $invoice_id]);
         $verify_url = "http://" . $_SERVER["HTTP_HOST"] . "/verify_payment.php";
          try {
      $http = HttpClient::create(["auth_bearer" => $api_key]);
@@ -34,7 +35,7 @@ $sql = "SELECT name , email , telephone , total_price from invoice where id = ?"
                                              ]
                        ]
                        ]);
-               
+              
         $status = $res->getStatusCode();
         $data = $res->toArray();
         $status = $data["status"];
